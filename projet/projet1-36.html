@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Squelette</title>
+</head>
+<body>
+
+<div id="app" >
+  <strong>Couleur</strong> 
+    <select v-model="couleur">
+      <option value="black" selected>Noir</option>
+      <option value="red" selected>Rouge</option>
+      <option value="blue" selected>Bleu</option>
+      <option value="green" selected>Vert</option>
+    </select>
+    <br/>
+  <strong>Taille</strong>
+    <select v-model="taille">
+      <option value="15px">petit</option>
+      <option value="25px">moyen</option>
+      <option value="40px">grand</option>
+    </select>
+<p :style="{color:couleur,fontSize:taille}">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium distinctio quis maxime ipsa. Exercitationem excepturi nobis quaerat nesciunt dicta numquam accusantium harum, aliquid consequatur optio natus ullam officia nemo?
+ 
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium distinctio quis maxime ipsa. Exercitationem excepturi nobis quaerat nesciunt dicta numquam accusantium harum, aliquid consequatur optio natus ullam officia nemo?
+ 
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium distinctio quis maxime ipsa. Exercitationem excepturi nobis quaerat nesciunt dicta numquam accusantium harum, aliquid consequatur optio natus ullam officia nemo?
+
+ 
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium distinctio quis maxime ipsa. Exercitationem excepturi nobis quaerat nesciunt dicta numquam accusantium harum, aliquid consequatur optio natus ullam officia nemo?
+</p>
+ 
+</div>
+
+<script>
+  app = Vue.createApp({
+    data(){
+      return {
+        couleur:'black',
+        taille:'15px'
+      }
+    }
+  });
+  app.mount('#app')
+</script>
+  
+</body>
+</html>
