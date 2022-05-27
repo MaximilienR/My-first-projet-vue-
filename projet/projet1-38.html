@@ -7,12 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/vue@next"></script>
 
-  <title>Squelette</title>
+  <title>l'annuaire du web </title>
+   <style>
+     fieldset{margin-bottom: 1rem;
+              color: gold;}
+      legend{color: silver;}
+      h1{text-align: center;
+      text-decoration:underline;
+    color: goldenrod;}
+     
+   </style>
 </head>
 
 <body>
 
   <div id="app">
+    <h1>L'annuaire du web</h1>
     <fieldset>
       <legend>Filtre sur le nom</legend>
       <input type="text" v-model="filterName">
@@ -33,6 +43,17 @@
       <input type="checkbox" checked v-model="shaping"><span>Mise en forme</span>
 
     </fieldset>
+    
+    <div v-for="p in personnes">
+      <div v-if="(Men && p.name.title=='Mr')||
+                 (Women && p.name.title=='Mrs')"> 
+      <img :src="p.picture.medium">
+      {{p.name.title}} {{p.name.fist}} {{p.name.last}}<br/>
+      <span v-if="mobil">{{p.phone}}</span><br/>
+      {{p.location.country}}<br/>
+       
+
+    </div>
 
   </div>
 
@@ -40,9 +61,9 @@
     app = Vue.createApp({
       data() {
         return {
-          homme: false,
-          femme: false,
-          tel: false,
+          Men: true,
+          Women: true,
+          mobil: false,
           shaping: false,
           personnes: [
             {
@@ -52,6 +73,7 @@
                 "first": "Elizabeth",
                 "last": "Ambrose"
               },
+              
               "location": {
                 "street": {
                   "number": 4954,
@@ -60,6 +82,7 @@
                 "city": "Hudson",
                 "state": "Alberta",
                 "country": "Canada",
+                 
                 "postcode": "N7H 5G1",
                 "coordinates": {
                   "latitude": "-67.5091",
@@ -101,6 +124,7 @@
               },
               "nat": "CA"
             },
+            
             {
               "gender": "male",
               "name": {
