@@ -47,10 +47,14 @@
     <div v-for="p in personnes">
       <div v-if="(Men && p.name.title=='Mr')||
                  (Women && p.name.title=='Mrs')"> 
-      <img :src="p.picture.medium">
+      <img :src="p.picture.medium"><br/>
       {{p.name.title}} {{p.name.fist}} {{p.name.last}}<br/>
-      <span v-if="mobil">{{p.phone}}</span><br/>
+      {{p.email}}<br/>
+      {{p.dob.job}}<br/>
+
       {{p.location.country}}<br/>
+      <span v-if="mobil">{{p.phone}}</span><br/>
+
        
 
     </div>
@@ -105,7 +109,9 @@
               },
               "dob": {
                 "date": "1995-11-20T00:31:55.940Z",
-                "age": 26
+                "age": 26,
+                "job":"vendeuse"
+
               },
               "registered": {
                 "date": "2010-12-21T12:23:45.450Z",
@@ -130,7 +136,8 @@
               "name": {
                 "title": "Mr",
                 "first": "Batista",
-                "last": "Silveira"
+                "last": "Silveira",
+
               },
               "location": {
                 "street": {
@@ -162,11 +169,14 @@
               },
               "dob": {
                 "date": "1978-03-16T14:00:38.384Z",
-                "age": 43
+                "age": 43,
+                "job":"Peintre"
+
               },
               "registered": {
                 "date": "2002-11-14T17:14:04.368Z",
-                "age": 19
+                "age": 19,
+
               },
               "phone": "(53) 5553-2892",
               "cell": "(04) 3893-4079",
@@ -218,7 +228,8 @@
               },
               "dob": {
                 "date": "1954-07-03T23:24:58.883Z",
-                "age": 67
+                "age": 67,
+                "job":"Informaticien"
               },
               "registered": {
                 "date": "2003-01-18T13:41:59.518Z",
