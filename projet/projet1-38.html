@@ -34,11 +34,12 @@
       <input type="checkbox" v-model="Women"><span>Femme</span></input>
       <input type="checkbox" v-model="mobil"><span>Téléphone </span></input>
       <span> Photo </span>
+     <!--taille de l'image-->
       <select v-model="cut" name="picture">
         <option> choisissez votre format</option>
-        <option value="15px" name="smolle">Petit</option>
-        <option value="25px" name="medium">Moyen</option>
-        <option value="40px" name="big">Grand</option>
+        <option value="1" name="smolle">Petit</option>
+        <option value="2" selected name="medium">Moyen</option>
+        <option value="3" name="big">Grand</option>
       </select>
       <input type="checkbox" checked v-model="shaping"><span>Mise en forme</span>
 
@@ -47,7 +48,9 @@
     <div v-for="p in personnes">
       <div v-if="(Men && p.name.title=='Mr')||
                  (Women && p.name.title=='Mrs')"> 
-      <img :src="p.picture.medium"><br/>
+      <img v-if="cut==1":src="p.picture.small"><br/>
+      <img v-if="cut==2":src="p.picture.medium"/><br/>
+      <img v-if="cut==3":src="p.picture.big"/><br/>
       {{p.name.title}} {{p.name.fist}} {{p.name.last}}<br/>
       {{p.email}}<br/>
       {{p.dob.job}}<br/>
@@ -69,6 +72,7 @@
           Women: true,
           mobil: false,
           shaping: false,
+          cut:2,
           personnes: [
             {
               "gender": "female",
@@ -124,9 +128,9 @@
                 "value": null
               },
               "picture": {
-                "large": "https://randomuser.me/api/portraits/women/49.jpg",
+                "big": "https://randomuser.me/api/portraits/women/49.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/women/49.jpg",
-                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/49.jpg"
+                "small": "https://randomuser.me/api/portraits/thumb/women/49.jpg"
               },
               "nat": "CA"
             },
@@ -185,9 +189,9 @@
                 "value": null
               },
               "picture": {
-                "large": "https://randomuser.me/api/portraits/men/50.jpg",
+                "big": "https://randomuser.me/api/portraits/men/50.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/men/50.jpg",
-                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/50.jpg"
+                "small": "https://randomuser.me/api/portraits/thumb/men/50.jpg"
               },
               "nat": "BR"
             },
@@ -242,9 +246,9 @@
                 "value": "756.3512.8312.75"
               },
               "picture": {
-                "large": "https://randomuser.me/api/portraits/men/29.jpg",
+                "big": "https://randomuser.me/api/portraits/men/29.jpg",
                 "medium": "https://randomuser.me/api/portraits/med/men/29.jpg",
-                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/29.jpg"
+                "small": "https://randomuser.me/api/portraits/thumb/men/29.jpg"
               },
               "nat": "CH"
             }
