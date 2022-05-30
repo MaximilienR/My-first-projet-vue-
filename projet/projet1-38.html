@@ -52,8 +52,10 @@
     </fieldset>
     
     <div v-for="p in personnes":class="{formatting:shaping}">
-      <div v-if="(Men && p.name.title=='Mr')||
-                 (Women && p.name.title=='Mrs')"> 
+      <div v-if="(((Men && p.name.title=='Mr')||
+                 (Women && p.name.title=='Mrs'))
+                 &&(p.name.last.indexOf(filterName)>=0
+                 ||filterName==''))"> 
       <img v-if="cut==1":src="p.picture.small"><br/>
       <img v-if="cut==2":src="p.picture.medium"/><br/>
       <img v-if="cut==3":src="p.picture.big"/><br/>
@@ -79,6 +81,7 @@
           mobil: false,
           shaping: false,
           cut:2,
+          filterName:'',
           personnes: [
             {
               "gender": "female",
