@@ -15,6 +15,12 @@
       h1{text-align: center;
       text-decoration:underline;
     color: goldenrod;}
+    .formatting{background: black;
+                color: white;
+                text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    margin:1rem}
      
    </style>
 </head>
@@ -45,7 +51,7 @@
 
     </fieldset>
     
-    <div v-for="p in personnes">
+    <div v-for="p in personnes":class="{formatting:shaping}">
       <div v-if="(Men && p.name.title=='Mr')||
                  (Women && p.name.title=='Mrs')"> 
       <img v-if="cut==1":src="p.picture.small"><br/>
